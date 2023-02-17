@@ -1,0 +1,11 @@
+    public function store(Request $request)
+
+    {
+
+        $fecha = new Factura_Venta();
+        $fec = $request->input('fecha');
+        $fecha->fecha = Carbon::createFromFormat('d/m/Y', $fec)->format('Y-m-d h:i:s');
+        $fecha->save();
+
+        echo 'Se guardo con exito'; 
+    }
